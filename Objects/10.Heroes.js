@@ -1,0 +1,5 @@
+function solve(){
+    return{
+        fighter
+    }
+}
