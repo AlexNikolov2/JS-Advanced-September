@@ -1,0 +1,23 @@
+{
+  "name": "js-advanced-september",
+  "version": "1.0.0",
+  "description": "js advanced course modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexNikolov2/JS-Advanced-September.git"
+  },
+  "author": "Aleks Nikolov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexNikolov2/JS-Advanced-September/issues"
+  },
+  "homepage": "https://github.com/AlexNikolov2/JS-Advanced-September#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2"
+  }
+}
