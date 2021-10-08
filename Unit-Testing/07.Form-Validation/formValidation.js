@@ -9,7 +9,7 @@ function validate() {
     let password = document.getElementById('password');
     let confirmPassword = document.getElementById('confirm-password');
     let companyInfo = document.getElementById('companyInfo');
-    let company = document.getElementById('company');
+    let company = document.querySelector('#company:checked').value;
     let companyNumber = document.getElementById('company-number');
     let validElement = document.getElementById('valid')
 
@@ -50,17 +50,21 @@ function validate() {
             isPassValid = true;
         }
     })
-    if(password.value == confirmPassword.value){
-        confirmPassword.value = '';
-        confirmPassword.style.border = 'none';
-        isRepValid = true;
-    }
-    else{
-        confirmPassword.style.borderColor = 'red';
-        confirmPassword.className = 'error';
-        validElement.style.display = 'none';
-    }
-    email.addEventListener('change', () =>{
+    confirmPassword.addEventListener('change', (event) => {
+        event.preventDefault();
+        if(password.value == confirmPassword.value){
+            confirmPassword.value = '';
+            confirmPassword.style.border = 'none';
+            isRepValid = true;
+        }
+        else{
+            confirmPassword.style.borderColor = 'red';
+            confirmPassword.className = 'error';
+            validElement.style.display = 'none';
+        }
+    })
+    email.addEventListener('change', (event) =>{
+        event.preventDefault();
         let result = email.value.match(emailregex);
         if(result === null){
             email.style.borderColor = 'red';
@@ -73,4 +77,18 @@ function validate() {
             isEmailValid = true;
         }
     })
+    if(company){
+        companyInfo.style.display = 'block';
+        companyNumber.addEventListener('change', (event) =>{
+            event.preventDefault();
+            if(companyNumber.value < 1000 && companyNumber.value > 9999){
+            companyNumber.style.borderColor = 'red';
+            companyNumber.className = 'error';
+            validElement.style.display = 'none';
+            }
+        })
+    }
+    else{
+        companyInfo.style.display = 'none';
+    }
 }
