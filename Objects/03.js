@@ -24,14 +24,14 @@ function cars(obj){
 
     if(obj.carriage === 'hatchback'){
         obj.carriage = {
-            carriage: 'hatchback',
+            type: 'hatchback',
             color: obj.color
         }
     }
 
     if(obj.carriage === 'coupe'){
         obj.carriage = {
-            carriage: 'coupe',
+            type: 'coupe',
             color: obj.color
         }
     }
@@ -43,7 +43,15 @@ function cars(obj){
 
     delete obj.power;
 
-    return obj
+    obj = {
+        model: obj.model,
+        engine: obj.engine,
+        carriage: obj.carriage,
+        wheelsize: obj.wheelsize
+
+    }
+
+    return obj;
 }
 cars(
     {
