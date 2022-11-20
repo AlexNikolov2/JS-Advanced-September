@@ -1,12 +1,25 @@
 function smallestPrice(arr){
 
-    for (const iterator of arr) {
-        let [town, product, price] = iterator.split(' | ');
-        
-        arr.sort((a,b) => a.price - b.price);
+    let obj = {};
 
-        console.log(price);
+    for (const iterator of arr) {
+        let [town ,product, price] = iterator.split(' | ');
+
+        if(!obj[product]){
+            obj[product] = { town, price: Number(price)}
+        }
+        else{
+            obj[product] = obj[product].price <= Number(price) ? obj[product] : {town, price:Number(price)}
+        }
     }
+
+    let result = [];
+
+    for (const key in obj) {
+        result.push(`${key} -> ${obj[key].price} (${obj[key].town})`);
+    }
+
+    console.log(result.join('\n'));
 
     
 }
